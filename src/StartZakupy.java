@@ -19,22 +19,22 @@ public class StartZakupy {
                 new Mieso("Parówki", 4.94, "Parówki wieprzowe 250 g.")
         );
 
-        List<Owoce> owoce = Arrays.asList(
-                new Owoce("Kiwi", 1.74, "Kiwi świeże 150 g."),
-                new Owoce("Arbuz", 13.79, "Arbuz mini 2 kg."),
-                new Owoce("Ananas", 9.19, "Ananas średni 1.40 kg.")
+        List<Owoc> owoc = Arrays.asList(
+                new Owoc("Kiwi", 1.74, "Kiwi świeże 150 g."),
+                new Owoc("Arbuz", 13.79, "Arbuz mini 2 kg."),
+                new Owoc("Ananas", 9.19, "Ananas średni 1.40 kg.")
         );
 
-        List<Warzywa> warzywa = Arrays.asList(
-                new Warzywa("Ogórek", 3.68, "Ogórek długi 200 g."),
-                new Warzywa("Rzodkiewka", 2.79, "Rzodkiewka pęczek 180 g."),
-                new Warzywa("Sałata", 5.98, "Sałata lodowa 400 g. ")
+        List<Warzywo> warzywo = Arrays.asList(
+                new Warzywo("Ogórek", 3.68, "Ogórek długi 200 g."),
+                new Warzywo("Rzodkiewka", 2.79, "Rzodkiewka pęczek 180 g."),
+                new Warzywo("Sałata", 5.98, "Sałata lodowa 400 g. ")
         );
 
-        List<Napoje> napoje = Arrays.asList(
-                new Napoje("Piwo", 3.32, "Piwo w puszce 0,5 L.", true),
-                new Napoje("Woda", 0.98, "Woda źródlana niegazowana 1,5 L.", false),
-                new Napoje("Sok pomidorowy", 4.78, "Sok pomidorowy pikantny 1 L.", false)
+        List<Napoj> napoj = Arrays.asList(
+                new Napoj("Piwo", 3.32, "Piwo w puszce 0,5 L.", true),
+                new Napoj("Woda", 0.98, "Woda źródlana niegazowana 1,5 L.", false),
+                new Napoj("Sok pomidorowy", 4.78, "Sok pomidorowy pikantny 1 L.", false)
         );
 
         List<Pieczywo> pieczywo = Arrays.asList(
@@ -84,60 +84,60 @@ public class StartZakupy {
 
                 case 2:
                     System.out.println("\nDostępne owoce:");
-                    for (int i = 0; i < owoce.size(); i++) {
-                        System.out.printf("%d. %s - %.2f zł/szt. (%s)%n", i + 1, owoce.get(i).getNazwa(), owoce.get(i).getCena(), owoce.get(i).getOpis());
+                    for (int i = 0; i < owoc.size(); i++) {
+                        System.out.printf("%d. %s - %.2f zł/szt. (%s)%n", i + 1, owoc.get(i).getNazwa(), owoc.get(i).getCena(), owoc.get(i).getOpis());
                     }
                     System.out.println("Wybierz produkt (numer):");
                     int owoceIndex = scanner.nextInt() - 1;
                     System.out.println("Podaj liczbę sztuk:");
                     int liczbaSztuk = scanner.nextInt();
-                    double cenaOwoceZaSztuke = owoce.get(owoceIndex).obliczCene(liczbaSztuk);
-                    koszyk.getProdukty().add(owoce.get(owoceIndex));
+                    double cenaOwocZaSztuke = owoc.get(owoceIndex).obliczCene(liczbaSztuk);
+                    koszyk.getProdukty().add(owoc.get(owoceIndex));
                     koszyk.getIlosc().add(liczbaSztuk);
-                    sumaKoszyka += cenaOwoceZaSztuke;
-                    paragon.add(String.format("%s - (%dx): %.2f zł", owoce.get(owoceIndex).getNazwa(), liczbaSztuk, cenaOwoceZaSztuke).replace('.', ','));
-                    System.out.printf("Cena za (%dx): %.2f zł%n", liczbaSztuk, cenaOwoceZaSztuke);
+                    sumaKoszyka += cenaOwocZaSztuke;
+                    paragon.add(String.format("%s - (%dx): %.2f zł", owoc.get(owoceIndex).getNazwa(), liczbaSztuk, cenaOwocZaSztuke).replace('.', ','));
+                    System.out.printf("Cena za (%dx): %.2f zł%n", liczbaSztuk, cenaOwocZaSztuke);
                     break;
 
                 case 3:
                     System.out.println("\nDostępne warzywa:");
-                    for (int i = 0; i < warzywa.size(); i++) {
-                        System.out.printf("%d. %s - %.2f zł/szt. (%s)%n", i + 1, warzywa.get(i).getNazwa(), warzywa.get(i).getCena(), warzywa.get(i).getOpis());
+                    for (int i = 0; i < warzywo.size(); i++) {
+                        System.out.printf("%d. %s - %.2f zł/szt. (%s)%n", i + 1, warzywo.get(i).getNazwa(), warzywo.get(i).getCena(), warzywo.get(i).getOpis());
                     }
                     System.out.println("Wybierz produkt (numer):");
                     int warzywaIndex = scanner.nextInt() - 1;
                     System.out.println("Podaj liczbę sztuk:");
-                    int liczbaWarzywa = scanner.nextInt();  // Liczba sztuk
-                    double cenaWarzywa = warzywa.get(warzywaIndex).obliczCene(liczbaWarzywa);
-                    koszyk.getProdukty().add(warzywa.get(warzywaIndex));
+                    int liczbaWarzywa = scanner.nextInt();
+                    double cenaWarzywa = warzywo.get(warzywaIndex).obliczCene(liczbaWarzywa);
+                    koszyk.getProdukty().add(warzywo.get(warzywaIndex));
                     koszyk.getIlosc().add(liczbaWarzywa);
                     sumaKoszyka += cenaWarzywa;
-                    paragon.add(String.format("%s - (%dx): %.2f zł", warzywa.get(warzywaIndex).getNazwa(), liczbaWarzywa, cenaWarzywa).replace('.', ','));
+                    paragon.add(String.format("%s - (%dx): %.2f zł", warzywo.get(warzywaIndex).getNazwa(), liczbaWarzywa, cenaWarzywa).replace('.', ','));
                     System.out.printf("Cena za (%dx): %.2f zł%n", liczbaWarzywa, cenaWarzywa);
                     break;
 
                 case 4:
                     System.out.println("\nDostępne napoje:");
-                    for (int i = 0; i < napoje.size(); i++) {
-                        System.out.printf("%d. %s - %.2f zł (%s)%n", i + 1, napoje.get(i).getNazwa(), napoje.get(i).getCena(), napoje.get(i).getOpis());
+                    for (int i = 0; i < napoj.size(); i++) {
+                        System.out.printf("%d. %s - %.2f zł (%s)%n", i + 1, napoj.get(i).getNazwa(), napoj.get(i).getCena(), napoj.get(i).getOpis());
                     }
                     System.out.println("Wybierz produkt (numer):");
                     int napojeIndex = scanner.nextInt() - 1;
-                    if (napoje.get(napojeIndex).isCzyAlkohol()) {
+                    if (napoj.get(napojeIndex).isCzyAlkohol()) {
                         System.out.println("Podaj swój rok urodzenia:");
                         int rokUrodzenia = scanner.nextInt();
-                        if (!napoje.get(napojeIndex).sprawdzWiek(rokUrodzenia)) {
+                        if (!napoj.get(napojeIndex).sprawdzWiek(rokUrodzenia)) {
                             System.out.println("Nie możesz kupić tego produktu, ponieważ jesteś niepełnoletni.");
                             break;
                         }
                     }
                     System.out.println("Podaj liczbę sztuk:");
                     int liczbaNapoje = scanner.nextInt();
-                    double cenaNapoje = napoje.get(napojeIndex).getCena() * liczbaNapoje;
-                    koszyk.getProdukty().add(napoje.get(napojeIndex));
+                    double cenaNapoje = napoj.get(napojeIndex).getCena() * liczbaNapoje;
+                    koszyk.getProdukty().add(napoj.get(napojeIndex));
                     koszyk.getIlosc().add(liczbaNapoje);
                     sumaKoszyka += cenaNapoje;
-                    paragon.add(String.format("%s - (%dx): %.2f zł", napoje.get(napojeIndex).getNazwa(), liczbaNapoje, cenaNapoje).replace('.', ','));
+                    paragon.add(String.format("%s - (%dx): %.2f zł", napoj.get(napojeIndex).getNazwa(), liczbaNapoje, cenaNapoje).replace('.', ','));
                     System.out.printf("Cena za (%dx): %.2f zł%n", liczbaNapoje, cenaNapoje);
                     break;
 

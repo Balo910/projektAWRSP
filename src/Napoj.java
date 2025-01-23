@@ -1,8 +1,8 @@
 import java.util.Calendar;
 
-class Napoje extends Produkt {
+class Napoj extends Produkt {
     private boolean czyAlkohol;
-    public Napoje(String nazwa, double cena, String opis, boolean czyAlkohol) {
+    public Napoj(String nazwa, double cena, String opis, boolean czyAlkohol) {
         super(nazwa, cena, opis);
         this.czyAlkohol = czyAlkohol;
     }
