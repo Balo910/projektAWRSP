@@ -1,9 +1,9 @@
-public class Produkty {
+public class Produkt {
     private String nazwa;
     private double cena;
     private String opis;
 
-    public Produkty(String nazwa, double cena, String opis) {
+    public Produkt(String nazwa, double cena, String opis) {
         this.nazwa = nazwa;
         this.cena = cena;
         this.opis = opis;

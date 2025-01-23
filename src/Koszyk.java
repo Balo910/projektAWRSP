@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Koszyk {
-    private List<Produkty> produkty;
+    private List<Produkt> produkty;
     private List<Integer> ilosc;
 
     public Koszyk() {
@@ -10,7 +10,7 @@ public class Koszyk {
         this.ilosc = new ArrayList<>();
     }
 
-    public List<Produkty> getProdukty() {
+    public List<Produkt> getProdukty() {
         return produkty;
     }
 
@@ -26,7 +26,7 @@ public class Koszyk {
 
         System.out.println("Twój koszyk:");
         for (int i = 0; i < produkty.size(); i++) {
-            Produkty produkt = produkty.get(i);
+            Produkt produkt = produkty.get(i);
             int ilosc = this.ilosc.get(i);
             System.out.printf("%d. %s - (%dx): %.2f zł%n", i + 1, produkt.getNazwa(), ilosc, produkt.obliczCene(ilosc));
         }

@@ -200,9 +200,9 @@ public class StartZakupy {
                     koszyk.pokazKoszyk();
                     System.out.println("Wybierz numer produktu do usunięcia:");
                     int indexDoUsuniecia = scanner.nextInt() - 1;
-                    List<Produkty> produktyKoszyka = koszyk.getProdukty();
+                    List<Produkt> produktyKoszyka = koszyk.getProdukty();
                     if (indexDoUsuniecia >= 0 && indexDoUsuniecia < produktyKoszyka.size()) {
-                        Produkty usunietyProdukt = produktyKoszyka.get(indexDoUsuniecia);
+                        Produkt usunietyProdukt = produktyKoszyka.get(indexDoUsuniecia);
                         int iloscUsunieta = koszyk.getIlosc().get(indexDoUsuniecia);
                         koszyk.usunProdukt(indexDoUsuniecia);
                         String produktDoUsuniecia = String.format("%s - (%dx):", usunietyProdukt.getNazwa(), iloscUsunieta).replace('.', ',');
